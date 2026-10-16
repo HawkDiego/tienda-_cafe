@@ -21,8 +21,8 @@ Repo recién creado con `create-next-app` (Next.js 16.4, React 19, Tailwind v4, 
 ```
 src/app/       layout.tsx, page.tsx, globals.css, sitemap.ts, robots.ts, opengraph-image.tsx, icon.svg
 src/components Header, Hero, Catalogo, Origen, Pedidos, FormularioPedido, Footer
-src/lib/       catalogo.ts, whatsapp.ts, jsonld.ts
-scripts/       check-whatsapp.ts
+src/lib/       catalogo.ts, pedido.ts, jsonld.ts
+scripts/       check-pedido.mjs
 ```
 Secciones como Server Components. `src/lib/catalogo.ts` concentra productos, moliendas, número de WhatsApp, `SITE_URL` y `formatCOP`. Alternativa descartada: JSON en `public/` — un TS da tipos y se importa en build sin fetch.
 
@@ -30,7 +30,7 @@ Secciones como Server Components. `src/lib/catalogo.ts` concentra productos, mol
 
 **Preselección por `?producto=<id>`.** El botón "Pedir" es un `next/link` a `/?producto=<id>#pedidos` (navegación suave, misma página). El formulario lee el parámetro con `useSearchParams` y ajusta su estado cuando cambia. Next 16 exige envolver ese componente en `<Suspense>` para que la página siga prerenderizándose; el fallback es el mismo formulario sin preselección, así que el HTML inicial ya trae el formulario. Alternativa descartada: estado compartido por Context entre tarjetas y formulario — obligaría a convertir el catálogo en Client Component y perder HTML estático.
 
-**Mensaje de WhatsApp.** Funciones puras en `src/lib/whatsapp.ts`; URL `https://wa.me/${NUMERO}?text=${encodeURIComponent(texto)}`. Self-check con `node --experimental-strip-types scripts/check-whatsapp.ts`, sin framework de pruebas.
+**Mensaje de WhatsApp.** Funciones puras en `src/lib/pedido.ts` (junto con `formatCOP`, sin imports en tiempo de ejecución para que node lo cargue directo); URL `https://wa.me/${NUMERO}?text=${encodeURIComponent(texto)}`. Self-check con `node scripts/check-pedido.mjs`, sin framework de pruebas.
 
 **Formato COP.** `Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 })` produce `$ 52.000` con espacio no separable; se quita el espacio para mostrar `$52.000`.
 
