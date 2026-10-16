@@ -6,7 +6,7 @@
 
 ## 2. Datos
 
-- [x] 2.1 `src/lib/catalogo.ts` con los 4 productos, presentaciones y precios del spec, 3 moliendas, número placeholder `573000000000`, `SITE_URL` y `formatCOP`; verificar con `npx tsc --noEmit`
+- [x] 2.1 `src/lib/catalogo.ts` con los 4 productos, presentaciones y precios del spec, 3 moliendas, y `SITE_URL` (número y `formatCOP` viven en `src/lib/pedido.ts`); verificar con `npx tsc --noEmit`
 - [x] 2.2 `src/lib/pedido.ts` (`formatCOP`, `armarMensajeWhatsApp`, `urlWhatsApp`, sin imports en runtime) y `scripts/check-pedido.mjs` que afirme el pedido de ejemplo (subtotal `$128.000`), la consulta y `formatCOP(52000) === "$52.000"`; verificar con `node scripts/check-pedido.mjs`
 
 ## 3. Secciones
@@ -32,7 +32,7 @@
 
 ## 6. Despliegue
 
-- [ ] 6.1 Commit en `main`
-- [ ] 6.2 `create_deployment` vía MCP al proyecto `cafeguito` (producción); verificar estado `READY`
-- [ ] 6.3 Confirmar la URL asignada; si no es `cafeguito.vercel.app`, actualizar `SITE_URL` y redesplegar
-- [ ] 6.4 Verificar en la URL desplegada: secciones, formulario, `/robots.txt`, `/sitemap.xml`, imagen OG y Lighthouse
+- [x] 6.1 Commit en `main`
+- [x] 6.2 `create_deployment` vía MCP al proyecto `cafeguito` (producción); verificar estado `READY`
+- [x] 6.3 Confirmar la URL asignada; si no es `cafeguito.vercel.app`, actualizar `SITE_URL` y redesplegar
+- [x] 6.4 Verificar en la URL desplegada: secciones, formulario, `/robots.txt`, `/sitemap.xml`, imagen OG y Lighthouse
