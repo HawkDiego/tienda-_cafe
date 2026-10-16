@@ -1,0 +1,37 @@
+schema: spec-driven
+
+context: |
+  Idioma: los artefactos (proposal, specs, design, tasks) se escriben en español.
+  Mantener en inglés los encabezados estructurales de OpenSpec y las palabras SHALL/MUST —
+  el validador busca ese patrón literal y no tiene soporte de locale.
+
+  Proyecto: CafeGuito — landing page de una tienda de café de origen local colombiano.
+  Secciones: catálogo de productos, sección de origen (finca/región/proceso) y formulario
+  de contacto/pedidos. Público y textos de UI en español de Colombia; precios en COP.
+
+  Stack: Next.js 16 (App Router, carpeta src/), React 19, TypeScript, Tailwind CSS v4, npm.
+  Next 16 trae cambios que pueden no estar en el conocimiento del modelo: antes de escribir
+  código leer la guía relevante en node_modules/next/dist/docs/ (ver AGENTS.md).
+  Tailwind v4 se configura en CSS (@theme en src/app/globals.css); no existe tailwind.config.
+
+  DATOS: el catálogo es estático, versionado en el repo (archivo TS). Sin base de datos ni CMS.
+
+  DESPLIEGUE: Vercel, plan Hobby (gratis), dominio *.vercel.app. Se opera vía el MCP de Vercel.
+  No proponer nada que requiera plan pago (dominio propio, funciones fuera del límite Hobby,
+  integraciones de pago) sin marcarlo explícitamente como fuera de alcance.
+
+  PRUEBAS: no hay suite. La verificación es `npm run build` + `npm run lint` y revisar la app
+  en el navegador (dev local o preview de Vercel).
+
+rules:
+  proposal:
+    - Indicar qué secciones de la landing se ven afectadas.
+    - Marcar si el cambio requiere variables de entorno o servicios externos y si caben en el plan gratuito.
+  specs:
+    - Describir el comportamiento observable para el visitante de la tienda, no qué componente lo renderiza.
+  design:
+    - Preferir Server Components; justificar cada 'use client'.
+    - Preferir capacidades nativas (HTML, CSS, next/image, next/font) antes que dependencias nuevas; justificar cualquier dependencia agregada.
+  tasks:
+    - Cada tarea debe decir cómo se verifica (build, lint, o comportamiento concreto en el navegador).
+    - Incluir una tarea final de despliegue a preview en Vercel y verificación de la URL.
