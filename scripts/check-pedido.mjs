@@ -20,7 +20,7 @@ const consulta = armarMensajeWhatsApp({ nombre: "Luis", ciudad: "Pasto", mensaje
 assert.match(consulta, /¿Hacen envíos a Pasto\?/);
 assert.doesNotMatch(consulta, /Producto/);
 
-assert.equal(urlWhatsApp(), "https://wa.me/573000000000");
+assert.equal(urlWhatsApp(), "https://wa.me/573053517666");
 assert.ok(urlWhatsApp("a b").endsWith("?text=a%20b"));
 
 console.log("check-pedido: OK");

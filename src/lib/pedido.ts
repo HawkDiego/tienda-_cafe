@@ -1,7 +1,7 @@
 // Sin imports en tiempo de ejecución: scripts/check-pedido.mjs lo carga directo con node.
 
-// TODO: reemplazar por el número real de la tienda (formato 57XXXXXXXXXX).
-export const NUMERO_WHATSAPP = "573000000000";
+// Formato internacional sin "+": 57 (Colombia) + celular.
+export const NUMERO_WHATSAPP = "573053517666";
 
 const cop = new Intl.NumberFormat("es-CO", {
   style: "currency",

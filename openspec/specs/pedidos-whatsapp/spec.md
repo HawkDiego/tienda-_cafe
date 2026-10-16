@@ -35,7 +35,7 @@ El formulario SHALL impedir el envío si falta un campo obligatorio o la cantida
 - **THEN** no se abre WhatsApp y el campo nombre queda señalado como obligatorio
 
 ### Requirement: Envío por WhatsApp
-Al enviar un formulario válido, el sistema SHALL abrir `https://wa.me/<número>?text=<mensaje>` en una pestaña nueva, con un mensaje en español que incluya nombre, ciudad, y — para pedidos — producto, presentación, molienda, cantidad y subtotal estimado en COP, más el mensaje opcional. El número SHALL ser el de la tienda (placeholder `573000000000` hasta tener el real).
+Al enviar un formulario válido, el sistema SHALL abrir `https://wa.me/<número>?text=<mensaje>` en una pestaña nueva, con un mensaje en español que incluya nombre, ciudad, y — para pedidos — producto, presentación, molienda, cantidad y subtotal estimado en COP, más el mensaje opcional. El número SHALL ser el de la tienda: `573053517666`.
 
 #### Scenario: Pedido completo
 - **WHEN** el visitante envía nombre "Ana", ciudad "Medellín", Castillo Honey 500 g, molienda media, cantidad 2
